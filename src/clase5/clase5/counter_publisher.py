@@ -12,14 +12,14 @@ class CounterPublisher(Node):
         self.publisher_ = self.create_publisher(Int32, 'counter_topic', 10)
         
         # Get timer_period parameter with default value of 1.0 seconds
-        self.declare_parameter('timer_period', 1.0)
+        self.declare_parameter('timer_period', 0.2)
         timer_period = self.get_parameter('timer_period').get_parameter_value().double_value
         
         self.timer = self.create_timer(timer_period, self.timer_callback)
         self.counter = 0
 
         # Get counter_max parameter with default value of 10
-        self.declare_parameter('counter_max', 10)
+        self.declare_parameter('counter_max', 50)
         self.counter_max = self.get_parameter('counter_max').get_parameter_value().integer_value
         self.get_logger().info(f'Counter created with max value ({self.counter_max}) and timer period {timer_period}s')
         

@@ -6,13 +6,13 @@ def generate_launch_description():
     # Declare launch arguments
     counter_max_arg = launch.actions.DeclareLaunchArgument(
         'counter_max',
-        default_value='5',
+        default_value='50',
         description='Maximum count value before publisher shuts down'
     )
 
     timer_period_arg = launch.actions.DeclareLaunchArgument(
         'timer_period',
-        default_value='1.0',
+        default_value='0.2',
         description='Timer period in seconds for publishing counter values'
     )
 
